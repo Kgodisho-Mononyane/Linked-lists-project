@@ -80,7 +80,24 @@ class linkedList {
     }
 
     findIndex(value) {
-        // returns the index of the node containing the given value. If the value can’t be found in the list, it should return -1. If more than one node has a value matching the given value, it should return the index of the first node with the matching value.
+        // returns the index of the node containing the given 
+        // value. If the value can’t be found in the list, it 
+        // should return -1. If more than one node has a value
+        //  matching the given value, it should return the index 
+        // of the first node with the matching value.
+        if (this.isEmpty()) {
+            return -1;
+        }
+        let i = 0;
+        let curr = this.head;
+        while(curr) {
+            if (curr.value === value) {
+                return i;
+            }
+            curr = curr.next;
+            i++;
+        }
+        return -1;
     }
 
     toString() {
@@ -130,10 +147,11 @@ const list = new linkedList;
 // list.print()
 // list.append(10);
 // list.print()
+list.append(10);
 list.append(20);
-// list.print()
-list.prepend(25)
 list.append(30);
+list.append(40);
+list.append(50);
 list.print()
 
-console.log(list.listHead());
+console.log(list.findIndex(10));
