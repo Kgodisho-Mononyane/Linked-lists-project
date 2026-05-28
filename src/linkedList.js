@@ -80,11 +80,6 @@ class linkedList {
     }
 
     findIndex(value) {
-        // returns the index of the node containing the given 
-        // value. If the value can’t be found in the list, it 
-        // should return -1. If more than one node has a value
-        //  matching the given value, it should return the index 
-        // of the first node with the matching value.
         if (this.isEmpty()) {
             return -1;
         }
@@ -101,22 +96,17 @@ class linkedList {
     }
 
     toString() {
-        // represents your LinkedList objects as strings, 
-        // so you can print them out and preview them in 
-        // the console. If the list is empty, it should 
-        // return an empty string. The format should be: 
-        // ( value ) -> ( value ) -> ( value ) -> null
-        
-        /*
-        IF empty
-            return null
-        ELSE
-            WHILE not null
-                log (value) ->
-                increment to next value
-            ENDWHILE
-            log null;
-        */
+        if (this.isEmpty()) {
+            console.log("");
+        } else {
+            let curr = this.head;
+            let listValues = '';
+            while(curr) {
+                listValues += `( ${curr.value} ) -> `;
+                curr = curr.next;
+            }
+            console.log(`${listValues}null`)
+        }
     }
 
     insertAt(index, ...values) {
@@ -155,3 +145,4 @@ list.append(50);
 list.print()
 
 console.log(list.findIndex(10));
+list.toString()
