@@ -31,8 +31,6 @@ class linkedList {
     }
 
     append(value) {
-        // adds a new node containing value to the end of 
-        // the list.
         const node = new Node(value);
         if (this.isEmpty()) {
             this.head = node;
@@ -82,7 +80,7 @@ class linkedList {
        } else {
         const value = this.head.value;
         this.head = this.head.next;
-        this.size--
+        this.size--;
         return value;
        }
     }
@@ -90,7 +88,14 @@ class linkedList {
     contains(value) {
         // returns true if the passed in value is in the list 
         // and otherwise returns false.
-
+        let curr = this.head;
+        while (curr) {
+            if (curr.value === value) {
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
     }
 
     findIndex(value) {
@@ -155,6 +160,6 @@ list.append(40);
 list.append(50);
 list.print()
 
-console.log(list.findIndex(10));
-list.toString()
-console.log(list.at(2))
+//console.log(list.findIndex(10));
+//list.toString()
+console.log(list.contains(10))
