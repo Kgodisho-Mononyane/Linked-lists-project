@@ -128,11 +128,23 @@ class linkedList {
         }
     }
 
-    insertAt(index, ...values) {
+    insertAt(value, index) {
         // should insert new nodes with the given values 
         // at the given index.If the method is called 
         // with an index that is out of bounds (below 
         // 0 or above the list’s size), throw a RangeError.
+        if (index === 0) {
+            this.prepend(value);
+        } else {
+            const node = new Node(value);
+            let prev = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next;
+            }
+            node.next = prev.next;
+            prev.next = node;
+            this.size++;
+        }
     }
 
     removeAt(index) {
@@ -177,6 +189,6 @@ list.append(20);
 list.append(30);
 list.append(40);
 list.append(50);
-list.print()
-list.removeAt(2)
-list.print()
+list.print();
+list.insertAt(60, 3)
+list.print();
