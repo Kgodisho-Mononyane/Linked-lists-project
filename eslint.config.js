@@ -4,7 +4,6 @@ import { defineConfig } from "eslint/config";
 import someConfig from "some-other-config-you-use";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 
-
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs}"],
