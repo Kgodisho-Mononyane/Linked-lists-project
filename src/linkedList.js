@@ -48,18 +48,26 @@ class linkedList {
         return this.size;
     }
 
-    listHead() { //check naming convention, why "head" doesnt work
-        return this.head.value;
-        // should return the value of the first node in the list. If the list is empty, it should return undefined.
+    listHead() { //check naming convention, why "head" does not work
+        if (this.isEmpty()) {
+            return;
+        } else {
+            return this.head.value;
+        }
     }
 
     listTail() {
-        return this.tail.value;
-        // should return the value of the final node in the list. If the list is empty, it should return undefined.
+        if (this.isEmpty()) {
+            return;
+        } else {
+            return this.tail.value;
+        }
     }
 
     at(index) {
-        // should return the value of the node at the given index. If there’s no node at the given index, it should return undefined.
+        // should return the value of the node at the given 
+        // index. If there’s no node at the given index, it 
+        // should return undefined.
     }
 
     pop() {
@@ -134,9 +142,6 @@ class linkedList {
 }
 
 const list = new linkedList;
-// list.print()
-// list.append(10);
-// list.print()
 list.append(10);
 list.append(20);
 list.append(30);
