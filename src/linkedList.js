@@ -17,8 +17,6 @@ class linkedList {
     }
 
     prepend(value) {
-        // adds a new node containing value to the start 
-        // of the list.
         const node = new Node(value);
         if (this.isEmpty()) {
             this.head = node;
@@ -46,7 +44,7 @@ class linkedList {
         return this.size;
     }
 
-    listHead() { //check naming convention, why "head" does not work
+    listHead() {
         if (this.isEmpty()) {
             return;
         } else {
@@ -86,8 +84,6 @@ class linkedList {
     }
 
     contains(value) {
-        // returns true if the passed in value is in the list 
-        // and otherwise returns false.
         let curr = this.head;
         while (curr) {
             if (curr.value === value) {
@@ -129,10 +125,6 @@ class linkedList {
     }
 
     insertAt(value, index) {
-        // should insert new nodes with the given values 
-        // at the given index.If the method is called 
-        // with an index that is out of bounds (below 
-        // 0 or above the list’s size), throw a RangeError.
         if (index === 0) {
             this.prepend(value);
         } else {
@@ -148,7 +140,6 @@ class linkedList {
     }
 
     removeAt(index) {
-        // that removes the node at the given index. 
         if (index < 0 || index >= this.size || this.isEmpty()) {
             throw new RangeError("Out of range");
         } 
