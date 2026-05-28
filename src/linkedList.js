@@ -44,18 +44,17 @@ class linkedList {
         this.size++;
     }
     
-    
-    
     size() {
         return this.size;
     }
 
-    head() {
-        return this.head.value.value;
+    listHead() { //check naming convention, why "head" doesnt work
+        return this.head.value;
         // should return the value of the first node in the list. If the list is empty, it should return undefined.
     }
 
-    tail() {
+    listTail() {
+        return this.tail.value;
         // should return the value of the final node in the list. If the list is empty, it should return undefined.
     }
 
@@ -64,11 +63,20 @@ class linkedList {
     }
 
     pop() {
-       // should remove the head node from the list and return its value. If it’s used on an empty list, it should just return undefined. 
+       if (this.isEmpty()) {
+            return null;
+       } else {
+        const value = this.head.value;
+        this.head = this.head.next;
+        this.size--
+        return value;
+       }
     }
 
     contains(value) {
-        // returns true if the passed in value is in the list and otherwise returns false.
+        // returns true if the passed in value is in the list 
+        // and otherwise returns false.
+
     }
 
     findIndex(value) {
@@ -80,7 +88,8 @@ class linkedList {
         // so you can print them out and preview them in 
         // the console. If the list is empty, it should 
         // return an empty string. The format should be: 
-        // ( value ) -> ( value ) -> ( value ) -> null.
+        // ( value ) -> ( value ) -> ( value ) -> null
+        
         /*
         IF empty
             return null
@@ -101,7 +110,6 @@ class linkedList {
     removeAt(index) {
         // that removes the node at the given index. If the given index is out of bounds (below 0 or greater than or equal to the list’s size), throw a RangeError
     }
-
 
     print() {
         if (this.isEmpty()) {
@@ -126,4 +134,6 @@ list.append(20);
 // list.print()
 list.prepend(25)
 list.append(30);
-console.log(list.head)
+list.print()
+
+console.log(list.listHead());
