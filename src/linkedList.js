@@ -129,12 +129,31 @@ class linkedList {
     }
 
     insertAt(index, ...values) {
-        // should insert new nodes with the given values at the given index  
-        // If the method is called with an index that is out of bounds (below 0 or above the list’s size), throw a RangeError.
+        // should insert new nodes with the given values 
+        // at the given index.If the method is called 
+        // with an index that is out of bounds (below 
+        // 0 or above the list’s size), throw a RangeError.
     }
 
     removeAt(index) {
-        // that removes the node at the given index. If the given index is out of bounds (below 0 or greater than or equal to the list’s size), throw a RangeError
+        // that removes the node at the given index. 
+        if (index < 0 || index >= this.size || this.isEmpty()) {
+            throw new RangeError("Out of range");
+        } 
+        
+        let removedNode;
+        if (index === 0) {
+            removedNode = this.head;
+            this.head = this.head.next;
+        } else {
+            let prev = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next
+            }
+            removedNode = prev.next;
+            prev.next = removedNode.next
+        }
+        this.size--;
     }
 
     print() {
@@ -159,7 +178,5 @@ list.append(30);
 list.append(40);
 list.append(50);
 list.print()
-
-//console.log(list.findIndex(10));
-//list.toString()
-console.log(list.contains(10))
+list.removeAt(2)
+list.print()
