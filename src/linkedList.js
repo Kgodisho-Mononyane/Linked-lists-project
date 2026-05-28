@@ -65,9 +65,15 @@ class linkedList {
     }
 
     at(index) {
-        // should return the value of the node at the given 
-        // index. If there’s no node at the given index, it 
-        // should return undefined.
+        if (index < 0 || index > this.size) {
+            return;
+        } else {
+            let curr = this.head;
+            for (let i = 0; i < index; i++) {
+                curr = curr.next
+            }
+            return curr.value;
+        }
     }
 
     pop() {
@@ -151,3 +157,4 @@ list.print()
 
 console.log(list.findIndex(10));
 list.toString()
+console.log(list.at(2))
